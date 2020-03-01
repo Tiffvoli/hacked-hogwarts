@@ -1,0 +1,353 @@
+@font-face {
+  font-family: "Bluu Next";
+  src: url("BluuNext-Bold.otf");
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Bluu Next";
+}
+body {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  color: white;
+}
+
+figure {
+  margin: 0;
+}
+
+.absolute-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.absolute-bg img {
+  margin-top: 3vw;
+  width: 40vw;
+}
+/*--https://codepen.io/yamaazizi/pen/BaNLQdL--*/
+.fog {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  align-content: center;
+}
+.fog__container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.fog__img {
+  position: absolute;
+  height: 100vh;
+  width: 300vw;
+}
+.fog__img--first {
+  background: url("https://res.cloudinary.com/dkr52htco/image/upload/v1536173269/fog-1.png")
+    repeat-x;
+  background-size: contain;
+  background-position: center;
+  animation: marquee 60s linear infinite;
+}
+.fog__img--second {
+  background: url("https://res.cloudinary.com/dkr52htco/image/upload/v1536173269/fog-2.png")
+    repeat-x;
+  background-size: contain;
+  background-position: center;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100vw, 0, 0);
+  }
+}
+/*---------------click button-------------*/
+.link {
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  animation: fadeinout 3s infinite;
+}
+
+.button {
+  text-decoration: none;
+  text-align: center;
+  font-family: "Bluu Next";
+  color: white;
+  font-size: 20px;
+}
+
+@keyframes fadeinout {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/*--------------template styling-------------*/
+#studentTemplate {
+  grid-column-start: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px 20px;
+  margin-top: 2em;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+#studentlist {
+  grid-column-start: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px 20px;
+  margin-top: 2em;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+.template_container {
+  border: 0.2px solid rgba(255, 255, 255, 0.475);
+  padding: 0.5rem;
+}
+
+.img_container {
+  padding-bottom: 2rem;
+}
+.posts-wrapper {
+  grid-column-start: 2;
+  grid-row-start: 4;
+  display: grid;
+  grid-template-columns: 5% auto 5%;
+  color: white;
+}
+
+.img_container img {
+  width: 50%;
+}
+.firstname,
+.middlename,
+.lastname {
+  font-size: 1.2em;
+}
+.house {
+  font-size: 1.2em;
+  padding-bottom: 1em;
+}
+/*--------------header----------------*/
+.header {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  font-size: 40px;
+  text-align: center;
+  padding-top: 2rem;
+  color: white;
+}
+/*---------------modal----------------*/
+.modal-bg {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal_img_container img {
+  height: 10em;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: space-around;
+  padding: 1em 1em 1em 1em;
+  width: 30rem;
+  height: 30rem;
+  margin: auto;
+  background-color: var(--primary-color);
+  outline: 2px solid;
+  outline-offset: -20px;
+  outline-color: var(--secondary-color);
+  color: var(--secondary-color);
+  text-align: center;
+  font-size: 1em;
+}
+
+.svg-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 15%;
+}
+object {
+  height: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+.modal[data-house="Gryffindor"] {
+  --primary-color: #7f0909;
+  --secondary-color: #ffc40084;
+}
+
+.modal[data-house="Hufflepuff"] {
+  --primary-color: #eee117;
+  --secondary-color: #000000;
+}
+
+.modal[data-house="Slytherin"] {
+  --primary-color: #0d6217;
+  --secondary-color: #aaaaaa;
+}
+
+.modal[data-house="Ravenclaw"] {
+  --primary-color: #000a90;
+  --secondary-color: #946b2d;
+}
+/*---------------filter styling-------*/
+#filter_banner {
+  grid-column-start: 2;
+  grid-row-start: 3;
+  text-align: left;
+  margin-top: 2em;
+}
+#filter_banner button {
+  background: transparent;
+  color: white;
+  font-size: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+/*------------sorting styling---------*/
+#sorting_banner {
+  grid-column-start: 2;
+  grid-row-start: 4;
+  text-align: right;
+  margin-top: 0;
+}
+#sorting_banner button {
+  background: transparent;
+  color: white;
+  font-size: 1em;
+}
+/*-----------squad------------------*/
+[data-field="squad"][data-squad="false"] {
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+/*-----------prefect------------------*/
+[data-field="prefect"][data-prefect="false"] {
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+/*----------prefect modals-------------*/
+.dialog {
+  display: none;
+}
+
+.dialog.show {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dialogcontent {
+  background-color: rgb(233, 233, 255);
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10vw 8vw 8vw 8vw;
+  position: relative;
+}
+
+.dialog h1 {
+  margin: 0;
+  font-size: 130%;
+}
+
+.dialog h2 {
+  margin: 0.5em 0;
+  font-size: 110%;
+  font-weight: lighter;
+}
+
+.dialog .closebutton {
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  top: 4vw;
+  right: 4vw;
+  border: none;
+  background-color: transparent;
+  font-size: 90%;
+  color: darkgray;
+}
+
+.dialog .closebutton:hover {
+  color: black;
+}
+[data-field="prefect"][data-prefect="false"] {
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+/*----------------expel----------------*/
+
+[data-field="expel"] {
+  opacity: 15%;
+  text-align: right;
+}
+[data-field="expel"]:hover {
+  opacity: 100%;
+  cursor: pointer;
+}
+/*-------------------grid--------------*/
+.grid-whole-page {
+  display: grid;
+  grid-template-columns: 1% 98% 1%;
+  grid-template-rows: auto;
+}
+/*---------------mobile---------------*/
+@media only screen and (max-width: 700px) {
+  .grid-whole-page {
+    display: grid;
+    grid-template-rows: 0.5% 1% 1% 50% 1%;
+  }
+  #filter_banner {
+    text-align: center;
+    margin-left: 0%;
+    margin-top: 5em;
+  }
+  #sorting_banner {
+    text-align: center;
+    margin-right: 0%;
+    margin-top: 1em;
+  }
+}
+object {
+  width: 5em;
+}

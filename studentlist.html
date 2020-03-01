@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student List</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="stars.css" />
+  </head>
+  <body>
+    <div class="grid-whole-page">
+      <!--stars background-->
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+
+      <!--header-->
+      <div class="header">Hogwarts Student List</div>
+      <article>
+        <!--filter houses-->
+        <div id="filter_banner">
+          <button class="filter" data-action="filter" data-filter="Gryffindor">
+            Gryffindor
+          </button>
+          <button class="filter" data-action="filter" data-filter="Slytherin">
+            Slytherin
+          </button>
+          <button class="filter" data-action="filter" data-filter="Hufflepuff">
+            Hufflepuff
+          </button>
+          <button class="filter" data-action="filter" data-filter="Ravenclaw">
+            Ravenclaw
+          </button>
+          <button class="filter" data-action="filter" data-filter="*">
+            All
+          </button>
+        </div>
+        <!--sorting-->
+
+        <div id="sorting_banner">
+          <p>Sort by...</p>
+          <button
+            data-action="sort"
+            data-sort-direction="asc"
+            data-sort="firstname"
+          >
+            Firstname
+          </button>
+          <button
+            data-action="sort"
+            data-sort-direction="asc"
+            data-sort="lastname"
+          >
+            Lastname
+          </button>
+        </div>
+        <section id="studentlist"></section>
+      </article>
+      <!--modal box-->
+      <div class="hide modal-bg">
+        <div class="modal" data-house="Gryffindor">
+          <div class="svg-wrapper">
+            <object data="img/Gryffindor.svg"></object>
+          </div>
+          <h2 class="modal-house">House goes Here</h2>
+          <div class="modal_img_container">
+            <img class="modal-img" src="images/abbott_h.png" alt="" />
+          </div>
+          <h2 id="modal-squad" data-field="squad">🎖️</h2>
+          <h1 class="modal-name">
+            <span id="modal-firstname"></span>
+            <span id="modal-middlename"></span>
+            <span id="modal-lastname"></span>
+          </h1>
+          <h2>
+            <span id="modal-gender">Gender:</span>
+          </h2>
+          <h2>
+            <span id="modal-blood">Blood: Pure Blood</span>
+            <span id="modal-expel">Status: Active</span>
+          </h2>
+        </div>
+      </div>
+      <!--template here-->
+      <template id="studentTemplate">
+        <div class="template_container">
+          <header>
+            <h1 class="house" data-field="house">house</h1>
+          </header>
+          <div class="img_container">
+            <img class="student_img" src="images/abbott_h.png" alt="" />
+          </div>
+          <span> <h2 class="prefect" data-field="prefect">🏆</h2></span>
+          <span> <h2 class="squad" data-field="squad">🎖️</h2></span>
+          <div class="name">
+            <span class="firstname" data-field="firstname">firstname</span>
+            <span class="middlename" data-field="middlename">middlename</span>
+            <h2 class="lastname" data-field="lastname">lastname</h2>
+            <h2 class="expel" data-field="expel">✘</h2>
+          </div>
+        </div>
+      </template>
+    </div>
+    <!--prefect modal-->
+    <div id="onlysixprefects" class="dialog">
+      <div class="dialogcontent">
+        <button class="closebutton">close</button>
+        <h1>You can only have six prefects in total!</h1>
+        <h2>Remove one, before you appoint more</h2>
+        <p>
+          <button data-action="remove1">remove</button>
+          <span class="student1">NAME, HOUSE</span>
+        </p>
+        <p>
+          <button data-action="remove2">remove</button>
+          <span class="student2">NAME, HOUSE</span>
+        </p>
+      </div>
+    </div>
+
+    <div id="onlyonehouse" class="dialog">
+      <div class="dialogcontent">
+        <button class="closebutton">close</button>
+        <h1>You can only have two prefects of each house</h1>
+        <h2>Remove the other if you want to appoint a new one</h2>
+        <p>
+          <button data-action="remove1">remove</button>
+          <span class="student1">NAME, HOUSE</span>
+        </p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
