@@ -246,7 +246,9 @@ function displayStudent(student) {
     });
   clone
     .querySelector("[data-field=squad]")
-    .addEventListener("click", clickSquad);
+    .addEventListener("click", function() {
+      toggleSquad(student);
+    });
   clone
     .querySelector("[data-field=prefect]")
     .addEventListener("click", function() {
@@ -406,9 +408,6 @@ function displayStudent(student) {
 function closeModal() {
   let modalBg = document.querySelector(".modal-bg");
   modalBg.classList.add("hide");
-  document
-    .querySelector("[data-field=squad]")
-    .removeEventListener("click", clickSquad);
 }
 //squad toggle
 function clickSquad() {
